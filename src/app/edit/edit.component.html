@@ -1,0 +1,55 @@
+
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+crossorigin="anonymous"
+/>
+
+<div class="container">
+<form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+  <div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4" class="hello">
+    <div class="form-group">
+      <h1>Sửa Sản Phẩm</h1>
+        <label for="name">Name</label>
+        <input 
+        formControlName="name" 
+        type="text" class="form-control" name="name" placeholder="Name" >
+
+        <!-- Show validate -->
+        <p *ngIf="!productForm.controls['name']?.valid && (productForm.controls['name']?.dirty
+        ||productForm.controls['name']?.touched) && productForm.controls['name']?.errors?.['required']"
+        class="help-block text-danger">*Tên không được để trống</p>
+
+        <p *ngIf="!productForm.controls['name']?.valid && (productForm.controls['name']?.dirty
+        ||productForm.controls['name']?.touched) && productForm.controls['name']?.errors?.['minlength']"
+        class="help-block text-danger">*Tên quá ngắn</p>
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input 
+        formControlName="price"
+        type="text" class="form-control" name="price"  >
+
+        <!-- Show validate -->
+         <!-- Show validate -->
+         <p *ngIf="!productForm.controls['price']?.valid && (productForm.controls['price']?.dirty
+        ||productForm.controls['price']?.touched) && productForm.controls['price']?.errors?.['required']"
+        class="help-block text-danger">*Gía không được để trống</p>
+
+        <p *ngIf="!productForm.controls['price']?.valid && (productForm.controls['price']?.dirty
+        ||productForm.controls['price']?.touched) && productForm.controls['price']?.errors?.['minlength']"
+        class="help-block text-danger">*Gía không đúng</p>
+
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="!productForm.valid" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</div>
+</form>
+</div>

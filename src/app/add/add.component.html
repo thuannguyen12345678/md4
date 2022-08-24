@@ -1,0 +1,58 @@
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous"
+/>
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+    
+            <!-- Show validate -->
+            <p 
+            *ngIf="!productForm.controls['name']?.valid && (productForm.controls['name']?.dirty
+            ||productForm.controls['name']?.touched)"
+            class="help-block text-danger">Name is required</p>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price">
+    
+            <!-- Show validate -->
+            <p 
+            *ngIf="!productForm.controls['price']?.valid && (productForm.controls['price']?.dirty
+            ||productForm.controls['price']?.touched)"
+            class="help-block text-danger">Price is required</p>
+    
+        </div>
+      
+        <!-- <div class="form-group">
+          <label for="oto">Vehicle </label>
+          <select >
+            <option *ngFor=" let oto of oto"> {{oto}}</option>
+          </select>
+        </div> -->
+
+        <button
+          type="submit"
+          [disabled]="!productForm.valid"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a [routerLink]="['/']" class="btn btn-danger">Hủy</a> 
+      </div>
+    </div>
+  </form>
+</div>
