@@ -43,6 +43,7 @@ export class EditComponent implements OnInit {
       name: this.productForm.value.name,
       price: this.productForm.value.price
     }
+    //cập nhật
     this._ProductService.update(this.id,productData);
 
     //chuyen huong ve list

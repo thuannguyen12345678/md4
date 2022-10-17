@@ -31,7 +31,7 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() {
-    //handle submit form
+    //xử lý biểu mẫu gửi
     let formData = this.productForm.value;
     let product: Product = {
       name: formData.name,
@@ -40,7 +40,7 @@ export class AddComponent implements OnInit {
     // call service update
     this._ProductService.store(product);
 
-    //redirect to products
+    //chuyển hướng đến product
     this._Router.navigate(['/products']);
     this._Router.navigate(['/']);
   }

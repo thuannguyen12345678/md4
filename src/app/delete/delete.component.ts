@@ -30,11 +30,11 @@ export class DeleteComponent implements OnInit {
 
   handleYes(){
     this._ProductService.destroy(this.id);
-    //redirect to products
+    //chuyển hướng đến sản phẩm
     this._Router.navigate(['/']);
   }
   handleNo(){
-    //redirect to products
+    //chuyển hướng đến sản phẩm
     this._Router.navigate(['/']);
   }
 }

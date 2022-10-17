@@ -15,11 +15,11 @@ export class ReactiveFormComponent implements OnInit {
     ngOnInit(): void {
   
       this.productForm = new FormGroup({
-        name: new FormControl('Nguyễn Đức Thuần',[
+        name: new FormControl('',[
           Validators.required,
           Validators.minLength(3)
         ]),
-        password: new FormControl('12345',[
+        password: new FormControl('',[
           Validators.required,
           Validators.minLength(3)
         ]),
